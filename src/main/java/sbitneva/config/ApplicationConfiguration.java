@@ -15,9 +15,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 
 @Configuration
-@ComponentScan(basePackages = "sbitneva")
 @PropertySource(value = {"classpath:db.properties"})
-@EnableWebMvc
 public class ApplicationConfiguration {
 
     @Autowired
@@ -38,14 +36,14 @@ public class ApplicationConfiguration {
         return dataSource;
     }
 
-    @Bean
+    /*@Bean
     public ViewResolver getViewResolver(){
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/jsp/");
+        resolver.setPrefix("/WEB-INF/views/");
         resolver.setSuffix(".jsp");
         resolver.setExposeContextBeansAsAttributes(true);
         return resolver;
-    }
+    }*/
 
 }
 

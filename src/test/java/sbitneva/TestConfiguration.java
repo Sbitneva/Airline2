@@ -15,7 +15,6 @@ import java.sql.Connection;
 @Configuration
 @ComponentScan(basePackages = "sbitneva")
 @PropertySource(value = {"classpath:db.properties"})
-@EnableWebMvc
 public class TestConfiguration {
 
     @Autowired

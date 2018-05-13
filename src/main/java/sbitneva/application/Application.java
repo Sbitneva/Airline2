@@ -18,7 +18,7 @@ public class Application {
 
     public static void main(String... args)  throws Exception {
 
-        //AbstractApplicationContext context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);
+
 
 
         String webappDirLocation = "src/main/webapp";
@@ -40,7 +40,5 @@ public class Application {
 
         tomcat.start();
         tomcat.getServer().await();
-
-
     }
 }
