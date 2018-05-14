@@ -23,6 +23,7 @@
         <tomcat.version>8.5.24</tomcat.version>
         <sqlite-jdbc.version>3.16.1</sqlite-jdbc.version>
         <jackson.library.version>2.9.3</jackson.library.version>
+        <jacoco.maven.plugin.version>0.7.9</jacoco.maven.plugin.version>
     </properties>
 
     <dependencies>
@@ -188,6 +189,25 @@
                         </manifest>
                     </archive>
                 </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.maven.plugin.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>report</id>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
