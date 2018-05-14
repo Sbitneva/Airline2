@@ -12,7 +12,7 @@ import sbitneva.service.CrudService;
 public class DeleteController {
 
     @Autowired
-    CrudService crudService;
+    private CrudService crudService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String deleteAircraft(@RequestParam("id") int id) {

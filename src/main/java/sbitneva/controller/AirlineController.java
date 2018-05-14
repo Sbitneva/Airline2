@@ -18,10 +18,10 @@ public class AirlineController {
     private static Logger log = Logger.getLogger(AirlineController.class.getName());
 
     @Autowired
-    ShowAllAircraftsService showAllAircraftsService;
+    private ShowAllAircraftsService showAllAircraftsService;
 
     @Autowired
-    SortByFlightRange sortByFlightRange;
+    private SortByFlightRange sortByFlightRange;
 
 
     @RequestMapping("/showAll")
@@ -31,7 +31,7 @@ public class AirlineController {
         return showAllAircraftsService.showAll();
     }
 
-    @RequestMapping("/sort/fuel")
+    @RequestMapping("/sort/flightRange")
     @ResponseBody
     public ArrayList<Aircraft> sortAllAircrafts() {
 

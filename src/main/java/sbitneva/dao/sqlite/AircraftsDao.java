@@ -31,6 +31,10 @@ public class AircraftsDao {
     private static final String UPDATE_AIRCRAFT = "update aircrafts set" +
             " name=?, type_id=?,  carriage_capacity=?, fuel_consumption=?, flight_range=? where id=?;";
     private static final String FIND_BY_RANGE_AIRCRAFT = "select * from aircrafts where (fuel_consumption between ? and ?)";
+    private static final String FIND_BY_PASS_CAPACITY_AND_FLIGHT_RANGE = "select * from aircrafts " +
+            "inner join aircraft_types on " +
+            "(aircraft_types.is_cargo=0 and aircraft_types.id=aircrafts.type_id and aircrafts.carriage_capacity=?" +
+            " and aircrafts.flight_range=?)";
 
 
     @Autowired
@@ -173,5 +177,37 @@ public class AircraftsDao {
         return aircrafts;
     }
 
+
+    public ArrayList<Aircraft> findByPassengerCapacityAndFlightRange(int capacity, int flightRange) {
+
+        ArrayList<Aircraft> aircrafts = new ArrayList<>();
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_BY_PASS_CAPACITY_AND_FLIGHT_RANGE)) {
+            statement.setInt(1, capacity);
+            statement.setInt(2, flightRange);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+
+                Aircraft aircraft = AircraftFactory.getAircraft(resultSet.getInt("type_id"));
+
+                aircraft.setId(resultSet.getInt("id"));
+                aircraft.setName(resultSet.getString("name"));
+                aircraft.setTypeId(resultSet.getInt("type_id"));
+                aircraft.setCarriageCapacity(resultSet.getInt("carriage_capacity"));
+                aircraft.setFuelConsumption(resultSet.getInt("fuel_consumption"));
+                aircraft.setFlightRange(resultSet.getInt("flight_range"));
+
+                aircrafts.add(aircraft);
+            }
+
+        } catch (SQLException e) {
+            log.error(e.getClass() + " : " + e.getMessage());
+        }
+
+        return aircrafts;
+    }
 
 }

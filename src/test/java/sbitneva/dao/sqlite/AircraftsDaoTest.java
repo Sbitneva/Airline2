@@ -124,10 +124,17 @@ public class AircraftsDaoTest {
     }
 
     @Test
-    public void findInRange(){
+    public void findInRangeTest(){
         ArrayList<Aircraft> aircrafts = aircraftsDao.findByFuelRange(4000, 5000);
         assertEquals(aircrafts.size(), 1);
         assertEquals(aircrafts.get(0).getId(), 4);
+    }
+
+    @Test
+    public void findByPassengerCapacityAndFlightRangeTest(){
+        ArrayList<Aircraft> aircrafts = aircraftsDao.findByPassengerCapacityAndFlightRange(1000, 6000);
+        assertEquals(aircrafts.size(), 1);
+
     }
 
 }

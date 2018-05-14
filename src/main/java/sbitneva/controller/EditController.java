@@ -13,7 +13,7 @@ import sbitneva.service.CrudService;
 public class EditController {
 
     @Autowired
-    CrudService crudService;
+    private CrudService crudService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String editAircraft(@RequestParam("id") int id,

@@ -64,6 +64,8 @@ public class ShowAllAircraftsClass {
     public void showAllTest() {
 
         for(int i = 0; i < aircrafts.size(); i++) {
+            assertEquals(aircrafts.get(i).getFuelConsumption(), aircrafts2.get(i).getFuelConsumption());
+            assertEquals(aircrafts.get(i).getTypeId(), aircrafts2.get(i).getTypeId());
             assertEquals(aircrafts.get(i).getId(), aircrafts2.get(i).getId());
             assertEquals(aircrafts.get(i).getName(), aircrafts2.get(i).getName());
             assertEquals(aircrafts.get(i).getFlightRange(), aircrafts2.get(i).getFlightRange());

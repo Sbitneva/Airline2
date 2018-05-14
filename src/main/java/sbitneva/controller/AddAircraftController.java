@@ -15,7 +15,7 @@ import sbitneva.service.CrudService;
 public class AddAircraftController {
 
     @Autowired
-    CrudService crudService;
+    private CrudService crudService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String addAircraft(   @RequestParam("name") String name,
