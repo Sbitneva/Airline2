@@ -6,4 +6,4 @@ checkstyle-*
 *.iml
 *.log*
 *.dat
-
+::memory:*
