@@ -5,6 +5,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import sbitneva.dao.sqlite.AircraftsDao;
+import sbitneva.entity.aircrafts.Aircraft;
+
+import java.util.ArrayList;
 
 @Service("findByFuelRangeService")
 public class FindByFuelRangeService {
@@ -14,7 +17,9 @@ public class FindByFuelRangeService {
     @Autowired
     private AircraftsDao aircraftsDao;
 
-    public void findInRange(){
+    public ArrayList<Aircraft> findInRange(int minRange, int maxRange){
+        ArrayList<Aircraft> aircrafts = new ArrayList<>();
+        return aircrafts;
 
     }
 }

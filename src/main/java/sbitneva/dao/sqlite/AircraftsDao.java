@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import org.sqlite.SQLiteConnection;
 import sbitneva.entity.aircrafts.Aircraft;
 import sbitneva.entity.aircrafts.AircraftBuilder;
+import sbitneva.entity.aircrafts.AircraftFactory;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -31,6 +32,7 @@ public class AircraftsDao {
             "(name, type_id, carriage_capacity, fuel_consumption, flight_range) values ( ?, ?, ?, ?, ?)";
     private static final String UPDATE_AIRCRAFT = "update aircrafts set" +
             " name=?, type_id=?,  carriage_capacity=?, fuel_consumption=?, flight_range=? where id=?;";
+    private static final String FIND_BY_RANGE_AIRCRAFT = "select * from aircrafts where (fuel_consumption between ? and ?)";
 
 
     @Autowired
@@ -141,4 +143,37 @@ public class AircraftsDao {
 
         return aircrafts;
     }
+
+    public ArrayList<Aircraft> findByFuelRange(int min, int max) {
+
+        ArrayList<Aircraft> aircrafts = new ArrayList<>();
+
+        try (Connection connection = dataSource.getConnection();
+             PreparedStatement statement = connection.prepareStatement(FIND_BY_RANGE_AIRCRAFT)) {
+            statement.setInt(1, min);
+            statement.setInt(2, max);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+
+                Aircraft aircraft = AircraftFactory.getAircraft(resultSet.getInt("type_id"));
+
+                aircraft.setId(resultSet.getInt("id"));
+                aircraft.setName(resultSet.getString("name"));
+                aircraft.setTypeId(resultSet.getInt("type_id"));
+                aircraft.setCarriageCapacity(resultSet.getInt("carriage_capacity"));
+                aircraft.setFuelConsumption(resultSet.getInt("fuel_consumption"));
+                aircraft.setFlightRange(resultSet.getInt("flight_range"));
+                aircrafts.add(aircraft);
+            }
+
+        } catch (SQLException e) {
+            log.error(e.getClass() + " : " + e.getMessage());
+        }
+
+        return aircrafts;
+    }
+
+
 }
