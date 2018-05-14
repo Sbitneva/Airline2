@@ -21,7 +21,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 
 
-public class SortByFlightRangeTests {
+public class SortByFlightRangeTest {
 
     private ArrayList<Aircraft> aircrafts = new ArrayList<>();
 

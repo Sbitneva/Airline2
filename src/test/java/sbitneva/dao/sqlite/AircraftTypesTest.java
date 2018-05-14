@@ -26,9 +26,9 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestConfiguration.class)
 
-public class AircraftTypesTests {
+public class AircraftTypesTest {
 
-    private static Logger log = Logger.getLogger(AircraftTypesTests.class.getName());
+    private static Logger log = Logger.getLogger(AircraftTypesTest.class.getName());
 
     @Mock
     @Autowired

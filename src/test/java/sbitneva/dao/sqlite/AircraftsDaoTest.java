@@ -12,7 +12,6 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import sbitneva.TestConfiguration;
 import sbitneva.entity.aircrafts.Aircraft;
 import sbitneva.entity.aircrafts.CargosAirplane;
-import sbitneva.entity.aircrafts.Helicopter;
 import sbitneva.entity.aircrafts.PassengerAirplane;
 
 import javax.sql.DataSource;
@@ -26,9 +25,9 @@ import static org.junit.Assert.assertEquals;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = TestConfiguration.class)
 
-public class AircraftsDaoTests {
+public class AircraftsDaoTest {
 
-    private static Logger log = Logger.getLogger(AircraftsDaoTests.class.getName());
+    private static Logger log = Logger.getLogger(AircraftsDaoTest.class.getName());
 
     @Mock
     @Autowired
