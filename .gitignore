@@ -1,0 +1,9 @@
+.idea/
+target/
+.m2/
+checkstyle-*
+*.class
+*.iml
+*.log*
+*.dat
+::memory:*
