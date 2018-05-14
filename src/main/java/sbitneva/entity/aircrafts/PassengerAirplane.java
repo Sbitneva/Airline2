@@ -32,17 +32,5 @@ public class PassengerAirplane extends Airplane implements Passengers {
         this.passengersList = passengersList;
     }
 
-    @Override
-    public int getCapacity() {
-        int carriageCapacity = 0;
-        for (Passenger passenger : passengersList) {
-            ArrayList<Cargo> baggage = passenger.getBaggage();
-            for (Cargo cargo : baggage) {
-                carriageCapacity += cargo.getWeight();
-            }
-        }
-        this.setCarriageCapacity(carriageCapacity);
-        return carriageCapacity;
-    }
 
 }

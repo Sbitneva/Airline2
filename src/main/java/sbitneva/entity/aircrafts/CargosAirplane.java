@@ -30,13 +30,4 @@ public class CargosAirplane extends Airplane implements Cargos {
         this.cargosList = cargos;
     }
 
-    @Override
-    public int getCapacity() {
-        int carriageCapacity = 0;
-        for (Cargo cargo : cargosList) {
-            carriageCapacity += cargo.getWeight();
-        }
-        this.setCarriageCapacity(carriageCapacity);
-        return carriageCapacity;
-    }
 }
