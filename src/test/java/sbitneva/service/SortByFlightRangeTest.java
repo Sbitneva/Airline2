@@ -16,14 +16,17 @@ import sbitneva.entity.aircrafts.CargosAirplane;
 
 import java.util.ArrayList;
 
+import static junit.framework.TestCase.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 
-
 public class SortByFlightRangeTest {
 
     private ArrayList<Aircraft> aircrafts = new ArrayList<>();
+    private ArrayList<Aircraft> aircrafts2 = new ArrayList<>();
 
     @InjectMocks
     private SortByFlightRange sortByFlightRange;
@@ -41,8 +44,21 @@ public class SortByFlightRangeTest {
         aircrafts.add(new CargosAirplane());
         aircrafts.add(new CargosAirplane());
         aircrafts.add(new CargosAirplane());
+        aircrafts2.add(new CargosAirplane());
+        aircrafts2.add(new CargosAirplane());
+        aircrafts2.add(new CargosAirplane());
+        aircrafts2.add(new CargosAirplane());
+        aircrafts2.add(new CargosAirplane());
+        aircrafts2.add(new CargosAirplane());
+        aircrafts2.add(new CargosAirplane());
+
         int i = aircrafts.size();
-        for(Aircraft aircraft : aircrafts) {
+        for(Aircraft aircraft : aircrafts){
+            aircraft.setFlightRange(i * 1000);
+            i--;
+        }
+        i = aircrafts2.size();
+        for(Aircraft aircraft : aircrafts2){
             aircraft.setFlightRange(i * 1000);
             i--;
         }
@@ -51,8 +67,20 @@ public class SortByFlightRangeTest {
 
     @Test
     public void sortTest(){
+
+        for(int i = 0; i < aircrafts.size(); i++) {
+            assertTrue(aircrafts.get(i).getFlightRange() == aircrafts2.get(i).getFlightRange());
+        }
         when(aircraftsDao.readAllAircrafts()).thenReturn(aircrafts);
+
         sortByFlightRange.sort();
+
+        int j = aircrafts.size() - 1 ;
+
+        for(int i = 0; i < aircrafts.size(); i++) {
+            assertTrue(aircrafts.get(j).getFlightRange() == aircrafts2.get(i).getFlightRange());
+            j--;
+        }
     }
 
 }

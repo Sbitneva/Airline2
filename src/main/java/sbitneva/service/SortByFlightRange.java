@@ -19,7 +19,7 @@ public class SortByFlightRange {
     @Autowired
     private AircraftsDao aircraftsDao;
 
-    public void sort() {
+    public  ArrayList<Aircraft> sort() {
         ArrayList<Aircraft> aircrafts = aircraftsDao.readAllAircrafts();
         aircrafts.sort(new Comparator<Aircraft>() {
             @Override
@@ -29,6 +29,7 @@ public class SortByFlightRange {
         });
 
         log.debug(aircrafts);
+        return aircrafts;
     }
 
 }
