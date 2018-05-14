@@ -7,12 +7,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import sbitneva.dao.sqlite.AircraftsDao;
-import sbitneva.dao.sqlite.BaggageDao;
-import sbitneva.entity.aircrafts.Aircraft;
 
-import java.util.ArrayList;
-
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;

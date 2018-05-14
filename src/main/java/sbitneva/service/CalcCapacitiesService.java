@@ -3,10 +3,7 @@ package sbitneva.service;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import sbitneva.dao.sqlite.AircraftsDao;
 import sbitneva.dao.sqlite.BaggageDao;
-
-import java.util.ArrayList;
 
 @Service("calcCapacitiesService")
 public class CalcCapacitiesService {
