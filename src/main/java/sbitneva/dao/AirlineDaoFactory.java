@@ -3,7 +3,6 @@ package sbitneva.dao;
 import sbitneva.dao.sqlite.AircraftTypesDao;
 import sbitneva.dao.sqlite.AircraftsDao;
 import sbitneva.dao.sqlite.BaggageDao;
-import sbitneva.dao.sqlite.PassengersDao;
 
 public class AirlineDaoFactory {
 
@@ -12,7 +11,6 @@ public class AirlineDaoFactory {
     private static AircraftsDao aircraftsDao = new AircraftsDao();
     private static AircraftTypesDao aircraftTypesDao = new AircraftTypesDao();
     private static BaggageDao baggageDao = new BaggageDao();
-    private static PassengersDao passengersDao = new PassengersDao();
 
     private AirlineDaoFactory() {
 
@@ -34,7 +32,4 @@ public class AirlineDaoFactory {
         return baggageDao;
     }
 
-    public static PassengersDao getPassengersDao() {
-        return passengersDao;
-    }
 }

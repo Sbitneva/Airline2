@@ -1,11 +1,10 @@
 package sbitneva.entity.aircrafts.internal;
 
-import sbitneva.entity.Entity;
 
 import java.util.ArrayList;
 
 
-public class Passenger implements Entity {
+public class Passenger {
 
     private Integer id;
     private String firstName;
