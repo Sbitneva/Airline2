@@ -22,4 +22,9 @@ public class CrudService {
     public void edit(int id, Aircraft aircraft) {
         aircraftsDao.update(id, aircraft);
     }
+
+    public Aircraft read(int id) {
+        return aircraftsDao.read(id);
+    }
+
 }

@@ -2,14 +2,14 @@ package sbitneva.entity.aircrafts;
 
 public class AircraftFactory {
 
-    private static final String CARGO_HELICOPTER = "cargo helicopter";
-    private static final String CARGO_AIRPLANE = "cargo aircraft";
+    private static final int CARGO_HELICOPTER = 2;
+    private static final int CARGO_AIRPLANE = 4;
 
-    private static final String PASS_HELICOPTER = "passenger_helicopter";
-    private static final String PASS_AIRPLANE = "passenger aircraft";
+    private static final int PASS_HELICOPTER = 3;
+    private static final int PASS_AIRPLANE = 1;
 
 
-    public static Aircraft getAircraft(String type) {
+    public static Aircraft getAircraft(int type) {
         Aircraft aircraft = null;
         switch (type) {
             case CARGO_HELICOPTER:
