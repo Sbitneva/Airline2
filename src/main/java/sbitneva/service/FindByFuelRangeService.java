@@ -18,8 +18,7 @@ public class FindByFuelRangeService {
     private AircraftsDao aircraftsDao;
 
     public ArrayList<Aircraft> findInRange(int minRange, int maxRange){
-        ArrayList<Aircraft> aircrafts = new ArrayList<>();
+        ArrayList<Aircraft> aircrafts = aircraftsDao.findByFuelRange(minRange, maxRange);
         return aircrafts;
-
     }
 }
