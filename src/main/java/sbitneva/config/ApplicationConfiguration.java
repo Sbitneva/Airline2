@@ -32,15 +32,6 @@ public class ApplicationConfiguration {
         return dataSource;
     }
 
-    /*@Bean
-    public ViewResolver getViewResolver(){
-        InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setPrefix("/WEB-INF/views/");
-        resolver.setSuffix(".jsp");
-        resolver.setExposeContextBeansAsAttributes(true);
-        return resolver;
-    }*/
-
 }
 
 
